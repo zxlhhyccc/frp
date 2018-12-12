@@ -70,13 +70,13 @@ log_max_days = 7
 
 [common]
 
-server_addr = jxv2ray.cf
+server_addr = xxx.cf
 
 server_port = 7000
 
 token = 123456
 
-user = jxv2ray
+user = xxx  #登录标识
 
 # 日志
 
@@ -95,7 +95,7 @@ local_port = 80
 
 local_ip = 127.0.0.1
 
-custom_domains = jxv2ray.cf , s.jxv2ray.cf
+custom_domains = xxx.cf , s.xxx.cf
 
 
 [ssh]
@@ -108,7 +108,7 @@ remote_port = 11122
 
 local_ip = 127.0.0.1
 
-custom_domains = s.jxv2ray.cf
+custom_domains = s.xxx.cf
 
 这里的服务器域名在域名里只要二级域名CNAME即可，可以任意添加域名名称，
 
