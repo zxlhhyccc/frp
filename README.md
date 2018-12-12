@@ -76,7 +76,7 @@ server_port = 7000
 
 token = 123456
 
-user = xxx  #登录标识
+user = xxx              #“xxx”为登录标识，可以任意
 
 # 日志
 
