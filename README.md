@@ -79,6 +79,7 @@ token = 123456
 user = jxv2ray
 
 # 日志
+
 log_file = ./frpc.log
 
 log_level = info
@@ -87,6 +88,7 @@ log_max_days = 7
 
 
 [web]
+
 type = http
 
 local_port = 80
