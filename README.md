@@ -5,27 +5,48 @@
 用一键脚本搭建，搭建后修改frpc.ini，将默认全部删除，加入自己的配置：
 
 [common]
+
 bind_addr = 0.0.0.0
+
 bind_port = 7000
+
 kcp_bind_port = 7000
+
 bind_udp_port = 7001
+
 token = www.nat.ee
+
 vhost_http_port = 8080
+
 vhost_https_port = 443
+
 allow_ports = 10001-19999
+
 #subdomain_host = nat.ee
+
 max_pool_count = 6
+
 max_ports_per_client = 3
+
 tcp_mux=true
+
 heartbeat_timeout = 90
+
 authentication_timeout = 900
+
 #[admin]
+
 dashboard_port = 7500
+
 dashboard_user = admin
+
 dashboard_pwd = admin
 #[log]
+
 #log_file = ./frps.log
+
 log_level = info
+
 log_max_days = 7
 
 把 443 和 token 改下就可以,
@@ -45,33 +66,52 @@ log_max_days = 7
 在路由、linux系统或电脑端加入下列参数：
 
 # 主配置
+
 [common]
+
 server_addr = jxv2ray.cf
+
 server_port = 7000
+
 token = 123456
+
 user = jxv2ray
 
 # 日志
 log_file = ./frpc.log
+
 log_level = info
+
 log_max_days = 7
+
 
 [web]
 type = http
+
 local_port = 80
+
 local_ip = 127.0.0.1
+
 custom_domains = jxv2ray.cf , s.jxv2ray.cf
 
+
 [ssh]
+
 type = tcp
+
 local_port = 22
+
 remote_port = 11122
+
 local_ip = 127.0.0.1
+
 custom_domains = s.jxv2ray.cf
 
 这里的服务器域名在域名里只要二级域名CNAME即可，可以任意添加域名名称，
+
 如：名称PC，域名为：xxx.cf,使用时将jxv2ray.cf改成相应的pc.xxx.cf,就可以进行内网穿透
- s.jxv2ray.cf可以同步ssh以tcp模式登录
+
+ 使用域名s.jxv2ray.cf可以同步ssh以tcp模式登录
 
 注：电脑端启动服务命令：
 
