@@ -112,7 +112,7 @@ custom_domains = s.xxx.cf
 
 这里的服务器域名在域名里只要二级域名CNAME即可，可以任意添加域名名称，
 
-如：名称PC，域名为：xxx.cf,使用时将jxv2ray.cf改成相应的pc.xxx.cf,就可以进行内网穿透
+如：名称PC，域名为：xxx.cf,使用时将xxx.cf改成相应的pc.xxx.cf,就可以进行内网穿透
 
  使用域名s.jxv2ray.cf可以同步ssh以tcp模式登录
 
