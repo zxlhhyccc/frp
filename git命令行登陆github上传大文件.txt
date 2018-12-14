@@ -1,0 +1,52 @@
+git命令行登陆github上传大文件
+
+登陆github必须先创建SSH key
+1.创建SSH Key。在用户主目录（C:\Users\Administrator）下，看看有没有.ssh文件，如果有，再看文件下有没有id_rsa和id_rsa.pub这两个文件，如果已经有了，可直接到下一步。如果没有，打开Git Bash，输入命令，创建SSH Key
+
+$ ssh-keygen -t rsa -C "bcoggins@student.ccc.edu"
+
+2.接下来到GitHub上，打开“Account settings”--“SSH Keys”页面，然后点击“Add SSH Key”，填上Title（随意写），在Key文本框里粘贴?id_rsa.pub文件里的全部内容。
+?id_rsa.pub 默认在C:\Users\Administrator\.ssh每台想要登陆某个github账号的主机都需要有一个对应的key，例如你有一个github账号，你在你的笔记本和台式上都要创建key
+
+登陆github
+点击右上角头像->setting进入设置页面–>SSH and GPS keys–>new SSH key，将本机的SSHkey配置上去
+
+3.git bash里输入下面的命令登陆
+$ ssh -T git@github.com
+如果看到 hi + 你的用户名说明密钥验证通过了，你已经可以上传下载了
+
+4.设置username和email，因为github每次commit都会记录他们
+git commit 命令会记录提交者的信息，所以使用git前必须先添加两条信息
+
+$ git config --global user.name "zxlhhyccc"
+$ git config --global user.email "bcoggins@student.ccc.edu"
+
+（其实可以不和github上面的用户名邮箱一致，只是为了避免混淆）
+
+5.接下来就是把本地仓库传到github上去
+
+$git init 
+执行这个命令，将当前目录作为git仓库 
+
+git add 
+添加文件到索引区域。 
+仓库创建完毕在这个文件夹中添加一个文件，我创建一个MarkDown文件，命名为README.md 
+git add README.md 提交README.md文件，将创建一个临时区域来存放这些文件。 
+如果想提交全部文件可以使用 git add --all
+
+git commit 
+提交到本地仓库。 
+一般使用 git commit -m “描述信息” 
+来为本次提交添加描述
+
+在需要提交的项目文件夹下打开git 控制台，如果该文件夹未构建git 仓库请先 
+git init 创建一个本地仓库 
+然后执行 git remote add zxlhhy git@github.com:zxlhhyccc/cbu.git（比如我的仓库别名是电脑上建立的文件夹名称github）
+然后执行 git push cbu master 等待文件提交完毕(debian9为我在github.com上创建的仓库)
+
+https://blog.csdn.net/guoxiaolongonly/article/details/53560462
+https://blog.csdn.net/putao2062/article/details/80516001
+https://www.cnblogs.com/huangtailang/p/4748075.html
+https://git-scm.com/download/win
+
+https://baijiahao.baidu.com/s?id=1601037714736535268&wfr=spider&for=pc
