@@ -1,0 +1,27 @@
+自己搭了个FRP服务器，今天打算打开官改的FRP功能，配置后发现报错。随即检查，存在如下三个问题：、
+问题一、官改1.8的frp版本0.13.0过老，已经和最新版的0.21.0不匹配。
+解决思路：
+1、下载最新版本的frp，下载地址：https://github.com/fatedier/frp/releases
+2、下载linux_ram版本，解压的到得到frpc文件即为最新版的frp客户端。
+问题二、替换usr/bin里面的frpc发现usr文件夹为read_only，不支持写入：
+解决思路：
+1、将新版本的frpc文件拷贝到/opt/bin里面，并设置权限为0777
+2、修改启动脚本，将/root/frpcmd.sh中的
+frpc -c /root/frp.ini -L /tmp/frpc.log &
+修改为
+/opt/bin/frpc -c /root/frp.ini -L /tmp/frpc.log &
+3、关闭frp并重新打开
+问题三、运行后出错，提示验证失败：authorization failed
+解决思路：
+新版本的token校验命令和老版本不一样，在frp设置的页面，将:
+privilege_token本前面的 privilege_删掉，保留token，关闭并重新打开服务。
+运行成功，解决问题！
+问题四：运行后，软件会自动关闭，并提示未运行
+解决思路：
+还是/root/frpcmd.sh脚本的问题，原来集成的0.13版本在写入logo是用-L参数，而新版本是在frpc.ini中配置，做如下调整：
+1、在frp配置页面的common中，增加：
+log_file = /tmp/frpc.log
+2、将/root/frpcmd.sh中的-L /TMP/frpc.log字符删掉，也就是将最原先的
+frpc -c /root/frp.ini -L /tmp/frpc.log &
+修改为：
+/opt/bin/frpc -c /root/frp.ini &
