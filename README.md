@@ -1,5 +1,7 @@
 # frp搭建及使用
-
+`````
+https://github.com/fatedier/frp/releases
+`````
 一、服务端配置：
 --------
 用一键脚本搭建，搭建后修改frpc.ini，将默认全部删除，加入自己的配置：
