@@ -6,6 +6,7 @@ wget -N --no-check-certificate -O frp.tar.gz "https://github.com/fatedier/frp/re
 拷贝服务端文件frps、frps.ini到以下目录
 /usr/local/frps/frps   
 /usr/local/frps/frps.ini  
+然后给与frps脚本执行权限chmod +x frps
 然后运行wget命令下载服务文件到以下目录
 wget -N --no-check-certificate -O frps "https://raw.githubusercontent.com/clangcn/onekey-install-shell/master/frps/frps.init"
 /etc/init.d/frps
