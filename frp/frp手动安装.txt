@@ -1,30 +1,31 @@
-frpÏÂÔØµØÖ·£ºhttps://github.com/fatedier/frp/releases/
-wgetÏÂÔØ£¬ÈçÕâ¸öÎÄ¼ş£ºhttps://github.com/fatedier/frp/releases/download/v0.22.0/frp_0.22.0_linux_amd64.tar.gz
+frpä¸‹è½½åœ°å€ï¼šhttps://github.com/fatedier/frp/releases/
+wgetä¸‹è½½ï¼Œå¦‚è¿™ä¸ªæ–‡ä»¶ï¼šhttps://github.com/fatedier/frp/releases/download/v0.22.0/frp_0.22.0_linux_amd64.tar.gz
 wget -N --no-check-certificate -O frp.tar.gz "https://github.com/fatedier/frp/releases/download/v0.22.0/frp_0.22.0_linux_amd64.tar.gz"
-È»ºó½âÑ¹£ºtar -xzf frp.tar.gz
-È»ºó½øÈë½âÑ¹ºóÄ¿Â¼£ºcd frp
-¿½±´·şÎñ¶ËÎÄ¼şfrps¡¢frps.iniµ½ÒÔÏÂÄ¿Â¼
+ç„¶åè§£å‹ï¼štar -xzf frp.tar.gz
+ç„¶åè¿›å…¥è§£å‹åç›®å½•ï¼šcd frp
+æ‹·è´æœåŠ¡ç«¯æ–‡ä»¶frpsã€frps.iniåˆ°ä»¥ä¸‹ç›®å½•
 /usr/local/frps/frps   
 /usr/local/frps/frps.ini  
-È»ºóÔËĞĞwgetÃüÁîÏÂÔØ·şÎñÎÄ¼şµ½ÒÔÏÂÄ¿Â¼
+ç„¶åè¿è¡Œwgetå‘½ä»¤ä¸‹è½½æœåŠ¡æ–‡ä»¶åˆ°ä»¥ä¸‹ç›®å½•
 wget -N --no-check-certificate -O frps "https://raw.githubusercontent.com/clangcn/onekey-install-shell/master/frps/frps.init"
 /etc/init.d/frps
-È»ºó´´½¨·şÎñÎÄ¼şÈíÁ´½Ó£º´´½¨frps·şÎñµÄÈíÁ¬½Ó£ºln -s /etc/init.d/frps /usr/bin/
-È»ºóÅäÖÃ/usr/local/frps/frps.ini 
-È»ºóÊ¹ÓÃÒÔÏÂÃüÁîÔËĞĞ£ºfrps start |restart | config|µÈ
-×¢²á·şÎñ£¬½ûÖ¹·şÎñ
-systemctl enable frps»ò/lib/systemd/systemd-sysv-install enable frps
+ç„¶åç»™ä¸frpsè„šæœ¬æ‰§è¡Œæƒé™chmod +x frps
+ç„¶ååˆ›å»ºæœåŠ¡æ–‡ä»¶è½¯é“¾æ¥ï¼šåˆ›å»ºfrpsæœåŠ¡çš„è½¯è¿æ¥ï¼šln -s /etc/init.d/frps /usr/bin/
+ç„¶åé…ç½®/usr/local/frps/frps.ini 
+ç„¶åä½¿ç”¨ä»¥ä¸‹å‘½ä»¤è¿è¡Œï¼šfrps start |restart | config|ç­‰
+æ³¨å†ŒæœåŠ¡ï¼Œç¦æ­¢æœåŠ¡
+systemctl enable frpsæˆ–/lib/systemd/systemd-sysv-install enable frps
 systemctl enable brook 
 systemctl enable shadowsocks-go
 
-systemctl disable frps #½ûÖ¹µÄ½Å±¾
-Ò»°ãÄÜ²éµ½ Èí¼şµÄ  ³ÌĞòºÍÅäÖÃ  init.d  ÏÂÊÇ·şÎñÅäÖÃ
+systemctl disable frps #ç¦æ­¢çš„è„šæœ¬
+ä¸€èˆ¬èƒ½æŸ¥åˆ° è½¯ä»¶çš„  ç¨‹åºå’Œé…ç½®  init.d  ä¸‹æ˜¯æœåŠ¡é…ç½®
 ps aux | grep  soft
 
-²é¿´frpsÅäÖÃ
+æŸ¥çœ‹frpsé…ç½®
 /etc/init.d/frps config
 
-²é¿´ÔËĞĞ×´Ì¬
+æŸ¥çœ‹è¿è¡ŒçŠ¶æ€
 systemctl status frps
 
 
