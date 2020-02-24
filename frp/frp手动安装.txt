@@ -1,3 +1,4 @@
+FRP内网穿透教程一：
 frp下载地址：https://github.com/fatedier/frp/releases/
 wget下载，如这个文件：https://github.com/fatedier/frp/releases/download/v0.22.0/frp_0.22.0_linux_amd64.tar.gz
 wget -N --no-check-certificate -O frp.tar.gz "https://github.com/fatedier/frp/releases/download/v0.22.0/frp_0.22.0_linux_amd64.tar.gz"
@@ -29,8 +30,7 @@ ps aux | grep  soft
 查看运行状态
 systemctl status frps
 
-FRP内网穿透
-
+FRP内网穿透教程二：
 cd /usr/local # 进入当前目录
 sudo wget https://github.com/fatedier/frp/releases/download/v0.31.2/frp_0.31.2_linux_amd64.tar.gz # 下载官方FRP到当前目录
 sudo tar xf frp*.tar.gz   # 解压该文件到当前目录
