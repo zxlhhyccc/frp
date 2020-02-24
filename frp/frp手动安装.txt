@@ -29,8 +29,61 @@ ps aux | grep  soft
 查看运行状态
 systemctl status frps
 
+FRP内网穿透
 
+cd /usr/local # 进入当前目录
+sudo wget https://github.com/fatedier/frp/releases/download/v0.31.2/frp_0.31.2_linux_amd64.tar.gz # 下载官方FRP到当前目录
+sudo tar xf frp*.tar.gz   # 解压该文件到当前目录
+sudo rm -rf frp*.tar.gz # 移除压缩包
+sudo mv frp* frps # 重命名文件夹为frps
 
+frps.ini配置：
+[common]
+bind_addr = 0.0.0.0
+bind_port = 7000
+kcp_bind_port = 7000
+bind_udp_port = 7001
+token = xxx # 令牌，和客户端一致
+vhost_http_port = 8080 # 和http80冲突，故改为其它
+vhost_https_port = 4433 # 和https443冲突，改用其它
+allow_ports = 6000-8000 # 服务器入站规则要开放此段端口（包括bind_port的7000）
+subdomain_host = frp.xxx.club # 我分给它一个二级域名frp专用
+max_pool_count = 6
+max_ports_per_client = 3
+tcp_mux = true
+heartbeat_timeout = 90
+authentication_timeout = 900
+#[admin]
+dashboard_port = 7500
+dashboard_user = admin
+dashboard_pwd = admin
+#[log]
+#log_file = ./frps.log
+log_level = info
+log_max_days = 7
 
+服务器运行服务创建：
+sudo vim /lib/systemd/system/frps.service
+
+[Unit]
+Description=fraps service
+After=network.target syslog.target
+Wants=network.target
+ 
+[Service]
+Type=simple
+ExecStart=/usr/local/frps/frps -c /usr/local/frps/frps.ini  #此处安实际情况修改
+ 
+[Install]
+WantedBy=multi-user.target
+
+运行frps
+sudo systemctl start frpc
+
+开机自动启动frps
+sudo systemctl status frpc
+
+查看进程
+ps auxw
 
 
